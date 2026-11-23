@@ -1,0 +1,31 @@
+How to show each practical working (Packet Tracer 9.0.1)
+Open the file, click Fast Forward Time (bottom left) 2-3 times so all links turn green.
+Then PC > Desktop > Command Prompt and type the ping below.
+
+01  PC1:  ping 192.168.1.1          (PC0, direct cross-over cable)
+02a PC0:  ping 10.10.10.2           (hub)
+02b PC0:  ping 10.10.11.2           (switch)
+03a PC0:  ping 10.11.12.4           (bus)
+03b PC0:  ping 12.12.12.3           (ring)
+04a PC0:  ping 10.10.10.4           (mesh)
+04b PC0:  ping 11.11.11.9           (tree)
+04c PC0:  ping 30.30.30.10          (hybrid)
+05  PC0:  ping 192.168.2.2          (LAN 1 -> LAN 2 through Router0)
+06  PC0:  ping 192.168.4.2          (LAN 1 -> LAN 4 through both routers, static routes)
+          Router0 CLI: show ip interface brief / show ip route
+07  Laptop0 (Wi-Fi):  ping 192.168.1.2   (wireless -> wired PC0)
+    Laptops get 192.168.0.x by DHCP from the wireless router. If a laptop shows 169.254.x.x,
+    open Desktop > IP Configuration and click Static then DHCP again.
+08  PC0:  ping 209.165.200.225      (inside PC -> outside server through ASA)
+          ASA0 CLI: show interface ip brief / show nameif
+09  Alt+click Motion Detector -> Fan and Light turn ON. Smartphone > IoT Monitor shows devices.
+10  Alt+click Door to open it -> Siren and Webcam turn ON. Close door -> they turn OFF.
+    Home Gateway Wi-Fi: SSID SecureHome, WPA2-PSK, passphrase SecureHome@123.
+    IoT Monitor login on smartphone: admin / admin.
+
+The first ping may show 1 timeout (ARP); the rest reply.
+
+Packet Tracer version:
+  Lab has 9.x  -> use the files in this folder.
+  Lab has 8.x  -> use the files in "PT 8.x versions" (tested in 8.2.2, same tests, all pass).
+  Check with Help > About in Packet Tracer.
